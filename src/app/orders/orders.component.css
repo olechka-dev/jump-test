@@ -1,0 +1,26 @@
+.navbar {
+  margin-bottom: 0;
+}
+
+.add-order {
+  width: fit-content;
+  margin-left: -15px;
+}
+
+.add-order:hover {
+  background-color: #eee;
+}
+
+.add-order a {
+  color: #9E9E9E;
+  font-weight: bold;
+  min-height: 30px;
+  line-height: 30px;
+  cursor: pointer;
+  display: block;
+  padding: 0 15px;
+}
+
+.add-order:hover a {
+  color: #E03930;
+}

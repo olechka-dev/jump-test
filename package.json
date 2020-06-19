@@ -9,6 +9,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
+    "webpack:server": "webpack --config webpack.config.js --progress --colors",
     "cypress": "concurrently \"npm start\" \"cypress open\"",
     "cypress:headless": "concurrently \"npm start\" \"cypress run\"",
     "playground": "angular-playground"
@@ -22,12 +23,14 @@
     "@angular/platform-browser": "~9.1.0",
     "@angular/platform-browser-dynamic": "~9.1.0",
     "@angular/router": "~9.1.0",
+    "aws-serverless-express": "^3.3.8",
+    "body-parser": "^1.19.0",
     "core-js": "^2.5.4",
-    "rxjs": "~6.5.3",
-    "tslib": "^1.10.0",
-    "zone.js": "~0.10.2",
     "express": "^4.17.1",
-    "body-parser": "^1.19.0"
+    "rxjs": "~6.5.3",
+    "serverless": "^1.53.0",
+    "tslib": "^1.10.0",
+    "zone.js": "~0.10.2"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.901.0",
@@ -51,7 +54,9 @@
     "protractor": "~5.4.0",
     "ts-node": "~7.0.0",
     "tslint": "~5.11.0",
-    "typescript": "~3.7.5"
+    "typescript": "~3.7.5",
+    "serverless-apigw-binary": "^0.4.4",
+    "webpack-cli": "^3.1.0"
   },
   "optionalDependencies": {
     "cypress": "^4.3.0",

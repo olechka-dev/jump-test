@@ -22,15 +22,15 @@ app.use(function (req, res, next) {
 
 //The dist folder has our static resources (index.html, css, images)
 if (!inContainer) {
-    app.use(express.static(__dirname + '/dist'));
-    console.log(__dirname);
+  app.use(express.static(process.cwd() + '/dist'));
 }
 
 app.get('/api/customers/page/:skip/:top', (req, res) => {
-    const topVal = req.params.top,
-          skipVal = req.params.skip,
-          skip = (isNaN(skipVal)) ? 0 : +skipVal;
-    let top = (isNaN(topVal)) ? 10 : skip + (+topVal);
+  console.log('cwd', process.cwd());
+  const topVal = req.params.top,
+    skipVal = req.params.skip,
+    skip = (isNaN(skipVal)) ? 0 : +skipVal;
+  let top = (isNaN(topVal)) ? 10 : skip + (+topVal);
 
   if (top > customers.length) {
     top = skip + (customers.length - skip);
@@ -149,23 +149,13 @@ app.post('/api/auth/logout', (req, res) => {
 });
 
 if (!inContainer) {
-    // redirect all others to the index (HTML5 history)
-    app.all('/*', function(req, res) {
-        res.sendFile(__dirname + '/dist/index.html');
-    });
-}
-
-app.listen(port);
-
-console.log('Express listening on port ' + port);
-
-//Open browser
-if (!inContainer && !inAzure) {
-  var opn = require('opn');
-
-  opn('http://localhost:' + port).then(() => {
-    console.log('Browser closed.');
+  // redirect all others to the index (HTML5 history)
+  app.all('/*', function (req, res) {
+    res.sendFile(process.cwd() + '/dist/index.html');
   });
 }
+
+module.exports = app;
+
 
 

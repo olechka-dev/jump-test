@@ -1,0 +1,84 @@
+.order-form {
+  width: 70%;
+}
+
+.autocomplete {
+  position: relative;
+  z-index: 1;
+}
+
+.input-container {
+  z-index: 10;
+  position: relative;
+}
+
+.auto-invalid, .product-name .ng-invalid, .price .ng-invalid {
+  border-left: 5px solid #a94442;
+}
+
+.auto-valid, .product-name .ng-valid, .price .ng-valid {
+  border-left: 5px solid #42A948;
+}
+
+.autocomplete-content {
+  display: block;
+  opacity: 1;
+  height: auto;
+  transition: opacity 0.4s ease-in-out;
+  position: absolute;
+  top: 25px;
+  left: 0;
+  right: 0;
+  padding: 43px 10px 10px 10px;
+  border-radius: 3px;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.1);
+  background-color: #fafafa;
+}
+
+.suggestions {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.suggestions-item {
+  cursor: pointer;
+  height: 30px;
+  line-height: 30px;
+}
+
+.order-item {
+  display: flex;
+  justify-content: space-between;
+}
+
+.product-name {
+  width: 60%;
+}
+.price {
+  width: 30%;
+}
+
+.add-product {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+.add-product a {
+  cursor: pointer;
+}
+
+.add-product a.remove {
+  color: #999;
+}
+
+.add-product a.add {
+  margin: 0 0 0 auto;
+  color: #42A948;
+}
+
+.alert {
+  margin-top: 80px;
+}

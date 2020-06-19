@@ -6,7 +6,8 @@ import { TrackByService } from '../core/services/trackby.service';
 
 @Component({
     selector: 'cm-customers-orders',
-    templateUrl: './orders.component.html'
+    templateUrl: './orders.component.html',
+    styleUrls: ['./orders.component.css']
 })
 export class OrdersComponent implements OnInit {
 

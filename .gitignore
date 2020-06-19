@@ -19,5 +19,8 @@ src/app/dist
 cypress/videos/
 cypress/screenshots/
 
+jspm_packages
 
+# Serverless directories
+.serverless
 

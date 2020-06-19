@@ -1,0 +1,65 @@
+<div class="customers view indent">
+  <div class="container">
+    <header>
+      <h3>
+        <span class="glyphicon glyphicon-folder-open"></span>&nbsp;&nbsp;Create Order
+      </h3>
+    </header>
+    <br/>
+
+    <div class="container">
+      <form [formGroup]="orderForm" (ngSubmit)="submit()" class="order-form">
+
+        <div class="form-group" [ngClass]="{'autocomplete': showSuggestions}">
+          <label>Select a Customer</label>
+          <div class="input-container">
+
+            <input type="text" #search class="form-control auto-invalid" placeholder="Search"
+                   [formControlName]="'customer'"
+            [ngClass]="{'auto-valid': orderForm.controls['customerId'].valid}"/>
+          </div>
+          <ng-container *ngIf="customers$ | async as customers">
+            <div *ngIf="showSuggestions" class="autocomplete-content">
+              <ul class="suggestions" *ngIf="customers.length > 0">
+                <li
+                  *ngFor="let cust of customers"
+                  class="suggestions-item"
+                  (click)="selectCustomer(cust)">
+                  <div>{{cust.firstName}} {{cust.lastName}}</div>
+                </li>
+              </ul>
+            </div>
+          </ng-container>
+        </div>
+
+        <div formArrayName="ordersArr" *ngFor="let order of ordersArr.controls; let i = index;">
+          <div [formGroupName]="i" class="order-item">
+            <div class="form-group product-name">
+              <label>Product Name</label>
+              <input type="text" class="form-control" formControlName="productName">
+            </div>
+            <div class="form-group price">
+              <label>Price, $</label>
+              <input type="text" class="form-control" formControlName="itemCost">
+            </div>
+          </div>
+        </div>
+        <div class="add-product">
+          <a class="remove" *ngIf="ordersArr.controls?.length > 1" (click)="removeOrderFields()">- Remove</a>
+          <a class="add" *ngIf="ordersArr.controls?.length < 5" (click)="addOrderFields()">+ Add More</a>
+        </div>
+
+
+        <div class="pull-right">
+          <button class="btn btn-default" (click)="cancel()">Cancel</button>&nbsp;&nbsp;
+          <button type="submit" class="btn btn-success" [disabled]="orderForm.pristine || !orderForm.valid">Create
+          </button>
+        </div>
+        <div class="alert alert-danger" *ngIf="errorMessage">{{ errorMessage }}</div>
+      </form>
+      <br/>
+    </div>
+
+  </div>
+</div>
+
