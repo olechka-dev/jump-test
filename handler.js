@@ -23,12 +23,10 @@ const binaryMimeTypes = [
   'application/x-font-ttf'
 ];
 
-
 app.use(awsServerlessExpressMiddleware.eventContext());
 
 const serverProxy = awsServerlessExpress.createServer(app, null, binaryMimeTypes);
 
 exports.run = (event, context) => {
-  console.log(event, context);
   awsServerlessExpress.proxy(serverProxy, event, context)
 };

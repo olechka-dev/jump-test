@@ -60,21 +60,21 @@
   width: 30%;
 }
 
-.add-product {
+.add-remove-product {
   display: flex;
   justify-content: space-between;
   margin-bottom: 30px;
 }
 
-.add-product a {
+.add-remove-product a {
   cursor: pointer;
 }
 
-.add-product a.remove {
+.add-remove-product a.remove {
   color: #999;
 }
 
-.add-product a.add {
+.add-remove-product a.add {
   margin: 0 0 0 auto;
   color: #42A948;
 }
