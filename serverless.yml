@@ -23,6 +23,24 @@ package:
    - cypress/**
    - deno/**
    - api/**
+   - '!node_modules/express/**'
+   - '!node_modules/depd/**'
+   - '!node_modules/body-parser/**'
+   - '!node_modules/fs2/**'
+   - '!node_modules/fs.realpath'
+   - '!node_modules/fs-access'
+   - '!node_modules/fs-constants'
+   - '!node_modules/fs-exists-sync'
+   - '!node_modules/fs-extra'
+   - '!node_modules/fs-minipass'
+   - '!node_modules/fs-write-stream-atomic'
+   - '!node_modules/fsevents'
+   - '!node_modules/aws-serverless-express/**'
+   - '!node_modules/binary-case/**'
+   - '!node_modules/type-is/**'
+   - '!node_modules/media-typer/**'
+   - '!node_modules/mime-types/**'
+   - '!node_modules/mime-db/**'
 
 custom:
   apigwBinary:
